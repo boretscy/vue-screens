@@ -1,4 +1,4 @@
-# vue-screens_s
+# vue-screens
 
 ## Project setup
 ```
