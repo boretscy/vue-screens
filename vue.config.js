@@ -3,5 +3,6 @@ module.exports = {
         optimization: {
             splitChunks: false
         }
-    }
+    },
+    publicPath: './'
 }
