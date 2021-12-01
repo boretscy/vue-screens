@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&subset=cyrillic');
+:root {
+    --font-family-sans-serif: "PT Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	
+	--yalightgray: #f5f5f5;
+	--yagray: #dadada;
+	--yadarkgray: #696969;
+	
+	--yablack: #000000;
+	--yawhite: #ffffff;
+	
+	--yalightblue: #87cefa;
+	--yablue: #1e90ff;
+	--yadarkblue: #003375;
+	--yablackblue: #00214c;
+	
+	--yalightyellow: #ffe687;
+	--yayellow: #fdba4d;
+	--yadarkyellow: #ff9e00;
+}
+
+body {
+    font-family: "PT Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	position: relative;
+}
+strong {
+	font-weight: 700;	
+}
+
+.bg-yawhite {background-color: var(--yawhite);}
+.bg-yalightgray {background-color: var(--yalightgray);}
+.bg-yagray {background-color: var(--yagray);}
+.bg-yadarkgray {background-color: var(--yadarkgray);}
+.bg-yablack {background-color: var(--yablack);}
+.bg-yawhite {background-color: var(--yawhite);}
+.bg-yalightblue {background-color: var(--yalightblue);}
+.bg-yablue {background-color: var(--yablue);}
+.bg-yadarkblue {background-color: var(--yadarkblue);}
+.bg-yablackblue {background-color: var(--yablackblue);}
+.bg-yalightyellow {background-color: var(--yalightyellow);}
+.bg-yayellow {background-color: var(--yayellow);}
+.bg-yadarkyellow {background-color: var(--yadarkyellow);}
+
+.c-yalightgray {color: var(--yalightgray);}
+.c-yagray {color: var(--yagray);}
+.c-yadarkgray {color: var(--yadarkgray);}
+.c-yablack {color: var(--yablack);}
+.c-yawhite {color: var(--yawhite);}
+.c-yalightblue {color: var(--yalightblue);}
+.c-yablue {color: var(--yayablue);}
+.c-yadarkblue {color: var(--yadarkblue);}
+.c-yalightyellow {color: var(--yalightyellow);}
+.c-yayellow {color: var(--yayellow);}
+.c-yadarkyellow {color: var(--yadarkyellow);}

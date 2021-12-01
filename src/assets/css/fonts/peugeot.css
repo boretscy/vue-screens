@@ -1,0 +1,155 @@
+@font-face {
+    font-family: 'Peugeot';
+    src: url('/include/screens/interface/assets/fonts/peugeot/Peugeot-BoldItalic.eot');
+    src: url('/include/screens/interface/assets/fonts/peugeot/Peugeot-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-BoldItalic.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-BoldItalic.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-BoldItalic.ttf') format('truetype'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-BoldItalic.svg#Peugeot-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Peugeot';
+    src: url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Bold.eot');
+    src: url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Bold.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Bold.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Bold.ttf') format('truetype'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Bold.svg#Peugeot-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Peugeot';
+    src: url('/include/screens/interface/assets/fonts/peugeot/Peugeot.eot');
+    src: url('/include/screens/interface/assets/fonts/peugeot/Peugeot.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot.ttf') format('truetype'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot.svg#Peugeot') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Peugeot';
+    src: url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Light.eot');
+    src: url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Light.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Light.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Light.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Light.ttf') format('truetype'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Light.svg#Peugeot-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Peugeot Expanded';
+    src: url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Bold.eot');
+    src: url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Bold.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Bold.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Bold.ttf') format('truetype'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Bold.svg#PeugeotExpanded-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Peugeot Expanded';
+    src: url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Light.eot');
+    src: url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Light.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Light.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Light.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Light.ttf') format('truetype'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Light.svg#PeugeotExpanded-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Peugeot Expanded';
+    src: url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Medium.eot');
+    src: url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Medium.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Medium.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Medium.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Medium.ttf') format('truetype'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-Medium.svg#PeugeotExpanded-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Peugeot Double Zero';
+    src: url('/include/screens/interface/assets/fonts/peugeot/PeugeotDoubleZero.eot');
+    src: url('/include/screens/interface/assets/fonts/peugeot/PeugeotDoubleZero.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotDoubleZero.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotDoubleZero.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotDoubleZero.ttf') format('truetype'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotDoubleZero.svg#PeugeotDoubleZero') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Peugeot Expanded';
+    src: url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-ExtraLight.eot');
+    src: url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-ExtraLight.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-ExtraLight.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-ExtraLight.ttf') format('truetype'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded-ExtraLight.svg#PeugeotExpanded-ExtraLight') format('svg');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Peugeot';
+    src: url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Italic.eot');
+    src: url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Italic.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Italic.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Italic.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Italic.ttf') format('truetype'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-Italic.svg#Peugeot-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Peugeot';
+    src: url('/include/screens/interface/assets/fonts/peugeot/Peugeot-LightItalic.eot');
+    src: url('/include/screens/interface/assets/fonts/peugeot/Peugeot-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-LightItalic.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-LightItalic.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-LightItalic.ttf') format('truetype'),
+        url('/include/screens/interface/assets/fonts/peugeot/Peugeot-LightItalic.svg#Peugeot-LightItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Peugeot Expanded';
+    src: url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded.eot');
+    src: url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded.woff2') format('woff2'),
+        url(/include/screens/interface/assets/fonts/peugeot/'PeugeotExpanded.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded.ttf') format('truetype'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotExpanded.svg#PeugeotExpanded') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Peugeot Style';
+    src: url('/include/screens/interface/assets/fonts/peugeot/PeugeotStyle.eot');
+    src: url('/include/screens/interface/assets/fonts/peugeot/PeugeotStyle.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotStyle.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotStyle.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotStyle.ttf') format('truetype'),
+        url('/include/screens/interface/assets/fonts/peugeot/PeugeotStyle.svg#PeugeotStyle') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

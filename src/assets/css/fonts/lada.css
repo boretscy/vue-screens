@@ -1,0 +1,37 @@
+
+@font-face {
+    font-family: 'Pragmatica';
+    src: url('/include/screens/interface/assets/fonts/lada/PragmaticaCyrillic.eot');
+    src: url('/include/screens/interface/assets/fonts/lada/PragmaticaCyrillic.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/lada/PragmaticaCyrillic.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/lada/PragmaticaCyrillic.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/lada/PragmaticaCyrillic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pragmatica';
+    src: url('/include/screens/interface/assets/fonts/lada/PragmaticaBoldCyrillic.eot');
+    src: url('/include/screens/interface/assets/fonts/lada/PragmaticaBoldCyrillic.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/lada/PragmaticaBoldCyrillic.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/lada/PragmaticaBoldCyrillic.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/lada/PragmaticaBoldCyrillic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Pragmatica';
+    src: url('/include/screens/interface/assets/fonts/lada/PragmaticaLightC.eot');
+    src: url('/include/screens/interface/assets/fonts/lada/PragmaticaLightC.eot?#iefix') format('embedded-opentype'),
+        url('/include/screens/interface/assets/fonts/lada/PragmaticaLightC.woff2') format('woff2'),
+        url('/include/screens/interface/assets/fonts/lada/PragmaticaLightC.woff') format('woff'),
+        url('/include/screens/interface/assets/fonts/lada/PragmaticaLightC.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+

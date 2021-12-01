@@ -1,0 +1,12 @@
+@font-face{
+    font-family:"SuzukiPRORegular";
+    src:url("/include/screens/interface/assets/fonts/suzuki/SuzukiPRORegular.woff2") format("woff2");
+    font-style:normal;
+    font-weight:normal
+}
+@font-face{
+    font-family:"SuzukiPROHeadline";
+    src:url("/include/screens/interface/assets/fonts/suzuki/SuzukiPROHeadline.woff2") format("woff2");
+    font-style:normal;
+    font-weight:bold
+}

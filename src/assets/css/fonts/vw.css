@@ -1,0 +1,79 @@
+@font-face{
+	font-family:"VWHeadWeb";
+	src:url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Bold.eot");
+	src:url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Bold.eot?#iefix") format("eot"),
+	url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Bold.ttf") format("truetype"),
+	url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Bold.woff") format("woff"),
+	url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Bold.woff2") format("woff2"),
+	url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Bold.svg") format("svg");
+	font-weight:700;
+	font-style:normal
+}
+@font-face{
+	font-family:"VWHeadWeb";
+	src:url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Regular.eot");
+	src:url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Regular.eot?#iefix") format("eot"),
+	url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Regular.ttf") format("truetype"),
+	url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Regular.woff") format("woff"),
+	url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Regular.woff2") format("woff2"),
+	url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Regular.svg") format("svg");
+	font-weight:400;
+	font-style:normal
+}
+@font-face{
+	font-family:"VWHeadWeb";
+	src:url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Light.eot");
+	src:url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Light.eot?#iefix") format("eot"),
+	url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Light.ttf") format("truetype"),
+	url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Light.woff") format("woff"),
+	url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Light.woff2") format("woff2"),
+	url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Light.svg") format("svg");
+	font-weight:300;
+	font-style:normal
+}
+@font-face {
+	font-family: 'VWHeadWeb';
+	src:url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Light.eot");
+	src:url("/include/screens/interface/assets/fonts/vw/VWHeadWeb-Light.eot?#iefix") format("eot"),
+	url('/include/screens/interface/assets/fonts/vw/VWHeadWeb-ExtraBold.woff2') format('woff2'),
+	url('/include/screens/interface/assets/fonts/vw/VWHeadWeb-ExtraBold.woff') format('woff'),
+	url('/include/screens/interface/assets/fonts/vw/VWHeadWeb-ExtraBold.ttf') format('truetype'),
+	url('/include/screens/interface/assets/fonts/vw/VWHeadWeb-ExtraBold.svg#nissan_agregular') format('svg');
+    font-weight: 800;
+    font-style: normal;
+
+}
+
+@font-face{
+	font-family:"VWTextWeb";
+	src:url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Bold.eot");
+	src:url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Bold.eot?#iefix") format("eot"),
+	url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Bold.ttf") format("truetype"),
+	url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Bold.woff") format("woff"),
+	url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Bold.woff2") format("woff2"),
+	url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Bold.svg") format("svg");
+	font-weight:700;
+	font-style:normal
+}
+@font-face{
+	font-family:"VWTextWeb";
+	src:url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Regular.eot");
+	src:url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Regular.eot?#iefix") format("eot"),
+	url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Regular.ttf") format("truetype"),
+	url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Regular.woff") format("woff"),
+	url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Regular.woff2") format("woff2"),
+	url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Regular.svg") format("svg");
+	font-weight:400;
+	font-style:normal
+}
+@font-face{
+	font-family:"VWTextWeb";
+	src:url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Light.eot");
+	src:url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Light.eot?#iefix") format("eot"),
+	url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Light.ttf") format("truetype"),
+	url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Light.woff") format("woff"),
+	url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Light.woff2") format("woff2"),
+	url("/include/screens/interface/assets/fonts/vw/VWTextWeb-Light.svg") format("svg");
+	font-weight:300;
+	font-style:normal
+}
