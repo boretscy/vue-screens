@@ -52,7 +52,7 @@ export default {
                     }
                 });
 
-        }, STATE.timeout*1000 *1000 );
+        }, STATE.timeout*1000);
     },
 	methods: {
 
