@@ -2,6 +2,11 @@
     <div id="app">
         <All v-if="DESIGN == 'all'" />
         <Lada v-if="DESIGN == 'lada'" />
+        <VW v-if="DESIGN == 'vw'" />
+        <Skoda v-if="DESIGN == 'skoda'" />
+        <JLR v-if="DESIGN == 'jlr'" />
+        <Kia v-if="DESIGN == 'kia'" />
+        <Peugeot v-if="DESIGN == 'peugeot'" />
 
         <Slider v-if="SLIDER" />
     </div>
@@ -14,13 +19,23 @@ import Slider from './components/Slider.vue'
 
 import All from './components/All.vue'
 import Lada from './components/Lada.vue'
+import VW from './components/VW.vue'
+import Skoda from './components/Skoda.vue'
+import JLR from './components/JLR.vue'
+import Kia from './components/Kia.vue'
+import Peugeot from './components/Peugeot.vue'
 
 export default {
     name: 'App',
     components: {
         Slider,
         All,
-        Lada
+        Lada,
+        VW,
+        Skoda,
+        JLR,
+        Kia,
+        Peugeot
     },
     computed: {
         DESIGN() { return this.$store.state.design },
@@ -29,7 +44,6 @@ export default {
     mounted: function() {
 
         let STATE = this.$store.state
-        console.log( STATE )
 
         if ( STATE.timeout ) {
             setInterval( function() {

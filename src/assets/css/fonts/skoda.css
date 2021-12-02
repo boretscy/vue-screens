@@ -1,21 +1,30 @@
 @font-face{
     font-family:"skodapro";
-    src:url("/include/screens/interface/assets/fonts/skoda/skodanext_regular.eot?#iefix");
-    src:url("/include/screens/interface/assets/fonts/skoda/skodanext_regular.eot?#iefix") format("eot"),url("/include/screens/interface/assets/fonts/skoda/skodanext_regular.woff2") format("woff2"),url("/include/screens/interface/assets/fonts/skoda/skodanext_regular.woff") format("woff"),url("/include/screens/interface/assets/fonts/skoda/skodanext_regular.ttf") format("truetype"),url("/include/screens/interface/assets/fonts/skoda/skodanext_regular.svg#skodanext_regular") format("svg");
+    src:url("../../fonts/skoda/skodanext_regular.eot?#iefix");
+    src:url("../../fonts/skoda/skodanext_regular.eot?#iefix") format("eot"),
+        url("../../fonts/skoda/skodanext_regular.woff2") format("woff2"),
+        url("../../fonts/skoda/skodanext_regular.woff") format("woff"),
+        url("../../fonts/skoda/skodanext_regular.ttf") format("truetype");
     font-style:normal;
     font-weight:normal
 }
 @font-face{
     font-family:"skodapro";
-    src:url("/include/screens/interface/assets/fonts/skoda/skodanext_bold.woff2/skodanext_bold.eot?#iefix");
-    src:url("/include/screens/interface/assets/fonts/skoda/skodanext_bold.eot?#iefix") format("eot"),url("/include/screens/interface/assets/fonts/skoda/skodanext_bold.woff2") format("woff2"),url("/include/screens/interface/assets/fonts/skoda/skodanext_bold.woff") format("woff"),url("/include/screens/interface/assets/fonts/skoda/skodanext_bold.ttf") format("truetype"),url("/include/screens/interface/assets/fonts/skoda/skodanext_bold.svg#skodanext_bold") format("svg");
+    src:url("../../fonts/skoda/skodanext_bold.eot?#iefix");
+    src:url("../../fonts/skoda/skodanext_bold.eot?#iefix") format("eot"),
+        url("../../fonts/skoda/skodanext_bold.woff2") format("woff2"),
+        url("../../fonts/skoda/skodanext_bold.woff") format("woff"),
+        url("../../fonts/skoda/skodanext_bold.ttf") format("truetype");
     font-style:normal;
     font-weight:bold
 }
 @font-face{
     font-family:"skodapro_bold";
-    src:url("/include/screens/interface/assets/fonts/skoda/skodanext_bold.woff2/skodanext_bold.eot?#iefix");
-    src:url("/include/screens/interface/assets/fonts/skoda/skodanext_bold.eot?#iefix") format("eot"),url("/include/screens/interface/assets/fonts/skoda/skodanext_bold.woff2") format("woff2"),url("/include/screens/interface/assets/fonts/skoda/skodanext_bold.woff") format("woff"),url("/include/screens/interface/assets/fonts/skoda/skodanext_bold.ttf") format("truetype"),url("/include/screens/interface/assets/fonts/skoda/skodanext_bold.svg#skodanext_bold") format("svg");
+    src:url("../../fonts/skoda/skodanext_bold.eot?#iefix");
+    src:url("../../fonts/skoda/skodanext_bold.eot?#iefix") format("eot"),
+        url("../../fonts/skoda/skodanext_bold.woff2") format("woff2"),
+        url("../../fonts/skoda/skodanext_bold.woff") format("woff"),
+        url("../../fonts/skoda/skodanext_bold.ttf") format("truetype");
     font-style:normal;
     font-weight:bold
 }

@@ -2,28 +2,28 @@
 	font-family:"KiaMediumWebfont";
 	font-style:normal;
 	font-weight:400;
-	src:url("/include/screens/interface/assets/fonts/kia/KIA-Medium.eot");
-	src:url("/include/screens/interface/assets/fonts/kia/KIA-Medium.eot?#iefix") format("embedded-opentype"),
-		url("/include/screens/interface/assets/fonts/kia/KIA-Medium.woff") format("woff");
+	src:url("../../fonts/kia/KIA-Medium.eot");
+	src:url("../../fonts/kia/KIA-Medium.eot?#iefix") format("embedded-opentype"),
+		url("../../fonts/kia/KIA-Medium.woff") format("woff");
 }
 
 @font-face {
 	font-family:'KIA';
-	src:url('/include/screens/interface/assets/fonts/kia/KiaSignatureLight.ttf');
+	src:url('../../fonts/kia/KiaSignatureLight.ttf');
 	font-style:normal;
 	font-weight:200;
 }
 
 @font-face {
 	font-family:'KIA';
-	src:url('/include/screens/interface/assets/fonts/kia/KiaSignatureRegular.ttf');
+	src:url('../../fonts/kia/KiaSignatureRegular.ttf');
 	font-style:normal;
 	font-weight:400;
 }
 
 @font-face {
 	font-family:'KIA';
-	src:url('/include/screens/interface/assets/fonts/kia/KiaSignatureBold.ttf');
+	src:url('../../fonts/kia/KiaSignatureBold.ttf');
 	font-style:normal;
 	font-weight:700;
 }

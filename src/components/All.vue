@@ -73,7 +73,6 @@
 <script>
 
 import manager from "../assets/images/default.jpg"
-
 import Timer from "./parts/Timer.vue"
 
 export default {
@@ -91,9 +90,10 @@ export default {
         STATE() { 
             
             let STATE = this.$store.state
-
             for ( let i in STATE.managers ) {
-                if ( !STATE.managers[i].PERSONAL_PHOTO ) STATE.managers[i].PERSONAL_PHOTO = manager
+                
+                if ( STATE.managers[i].PERSONAL_PHOTO && STATE.managers[i].PERSONAL_PHOTO.indexOf('portal.yug-avto.ru') == -1 ) STATE.managers[i].PERSONAL_PHOTO = 'https://portal.yug-avto.ru'+STATE.managers[i].PERSONAL_PHOTO
+                if ( !STATE.managers[i].PERSONAL_PHOTO )  STATE.managers[i].PERSONAL_PHOTO = manager
             }
 
             return STATE
@@ -107,6 +107,7 @@ export default {
 </script>
 
 <style scoped>
+/* @import '../assets/css/fonts/lada.css'; */
 body, table {
     overflow: hidden;
     color: var(--yablack);

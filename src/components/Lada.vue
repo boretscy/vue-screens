@@ -1,70 +1,62 @@
 <template>
     
-    <div class="container p-0">
-        <div class="row">
-            <div class="col-6">
-                <div class="row">
-                    <div class="col-3 pt-3">
-                        <img 
-                            class="w-100" 
-                            :src="require('../assets/images/all.jpg')" />
-                    </div>
-                    <div class="col-9 pl-5">
-                        <h1 class="c-yadarkblue pt-3 pb-0 mb-0"><strong>{{ STATE.titleH1 }}</strong></h1>
-                        <h2 class="c-yadarkblue">{{ STATE.titleH2 }}</h2>
-                        <Timer />
-                    </div>
-                </div>
+    <div class="container-fluid p-0">
+        <div class="row bg-yagray c-yawhite px-5 py-3">
+            <div class="col-3 px-5 py-3 logo">
+                <img  
+                    :src="require('../assets/images/lada.png')" />
             </div>
-            <div 
-                class="col-6 d-flex justify-content-end"
-                v-if="STATE.managers"
-                >
-                <div 
-                    class="col-3 text-center manager"
-                    v-for="manager in STATE.managers"
-                    :key="manager.ID"
-                    >
-                    <img 
-                        class="w-100" 
-                        :src="manager.PERSONAL_PHOTO" />
-                    <p class="m-0 mt-2">{{ manager.LAST_NAME }} {{ manager.NAME }}</p>
+            <div class="col-6 pt-3">
+                <h1 class="text-uppercase mt-3 mb-0">{{ STATE.titleH1 }}</h1>
+                <h2 class="">{{ STATE.titleH2 }}</h2>
+            </div>
+            <div class="col-3 pl-5">
+                <div class="clock bg-yadarkgray mr-2 ml-5 mt-4 p-2 pr-3">
+                    <Timer />
                 </div>
             </div>
         </div>
-        <div class="row py-4">
-            <div class="col">
-                <table class="table table-borderless table-striped m-0">
+
+        <div 
+            class="row p-5"
+            v-if="Object.keys(STATE.managers).length"
+            >
+            <div class="col-3">
+                <img 
+                        class="w-100" 
+                        :src="STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].PERSONAL_PHOTO" />
+                <p class="mt-5">
+                    <strong>{{ STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].LAST_NAME }} {{ STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].NAME }}</strong>
+                    <br />
+                    Мастер-консультант
+                </p>
+            </div>
+            
+            <div class="col-9">
+                <table class="table table-striped  m-0" v-if="STATE.items">
                     <thead>
-                        <tr class="c-yadarkblue">
-                            <th style="width: 14%;" class="text-center">Время</th>
-                            <th style="width: 24%;">Клиент</th>
-                            <th style="width: 24%;">Модель и гос. номер автомобиля</th>
-                            <th style="width: 23%;">Мастер-консультант</th>
-                            <th style="width: 15%;">Статус</th>
+                        <tr class="fon-weight-bold">
+                            <th style="width: 25%;" class="pl-5">Время<br />приемки</th>
+                            <th style="width: 45%;">Клиент</th>
+                            <th style="width: 30%;">Гос. номер<br />Модель а/м</th>
                         </tr>
                     </thead>
-                    <tbody v-if="STATE.items">
+                    <tbody>
                         <tr
-                            v-for="(item, indx) in STATE.items"
-                            :key="indx"
-                            >
-                            <td class="text-center">{{ item.time.in }}</td>
+                            v-for="item in STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].items"
+                            :key="item.ID">
+                            <td class="pl-5">{{ item.time.in }}</td>
                             <td>{{ item.client}}</td>
-                            <td>{{ item.model }} {{ item.plate }}</td>
-                            <td>{{ STATE.managers[item.manager].LAST_NAME }} {{ STATE.managers[item.manager].NAME }}</td>
-                            <td>{{ STATE.statuses[item.status] }}</td>
+                            <td>{{ item.plate }} {{ item.model }}</td>
                         </tr>
                     </tbody>
                 </table>
+                <p v-if="Object.keys(STATE.managers).length && !STATE.items.length" class="pl-5">{{ STATE.empty }}</p>
+                <p class="pl-5 mt-3">{{ STATE.footer }}</p>
             </div>
+
         </div>
-        <div class="row mt-5" v-if="!STATE.items.length">
-            <div class="col py-5 text-center datetime">{{ STATE.empty }}</div>
-        </div>
-        <div class="row mt-5" v-if="STATE.items.length">
-            <div class="col c-yadarkblue text-center datetime">{{ STATE.footer }}</div>
-        </div>
+        <div class="row p-5 text-center" v-if="!Object.keys(STATE.managers).length">{{ STATE.empty }}</div>
 
     </div>
 
@@ -73,11 +65,10 @@
 <script>
 
 import manager from "../assets/images/default.jpg"
-
-import Timer from "./parts/Timer.vue"
+import Timer from "./parts/Timer.lada.vue"
 
 export default {
-    name: 'All',
+    name: 'Lada',
     components: {
         Timer
     },
@@ -94,7 +85,8 @@ export default {
 
             for ( let i in STATE.managers ) {
                 
-                if ( !STATE.managers[i].PERSONAL_PHOTO ) STATE.managers[i].PERSONAL_PHOTO = manager
+                if ( STATE.managers[i].PERSONAL_PHOTO && STATE.managers[i].PERSONAL_PHOTO.indexOf('portal.yug-avto.ru') == -1 ) STATE.managers[i].PERSONAL_PHOTO = 'https://portal.yug-avto.ru'+STATE.managers[i].PERSONAL_PHOTO
+                if ( !STATE.managers[i].PERSONAL_PHOTO )  STATE.managers[i].PERSONAL_PHOTO = manager
                 
                 STATE.managers[i].items = []
                 for ( let k in STATE.items ) {
@@ -107,35 +99,79 @@ export default {
     },
     mounted: function() {
 
-        
+        let STATE = this.$store.state
+
+        setInterval( function() {
+
+            STATE.curMIndx++;
+            if ( Object.keys(STATE.managers).length-1 < STATE.curMIndx ) STATE.curMIndx = 0;
+
+        }, 5000);
     }
 }
 </script>
 
 <style scoped>
-body, table {
-    overflow: hidden;
+@import '../assets/css/fonts/lada.css';
+
+.container-fluid {
+	--yadarkblue: #bb162a;
+    --yablackblue: #00214c;
+    
+    --yaorange: #f18812;
+    --yadarkorange: #e68526;
+    --yalightgray: #dadedf;
+    --yagray: #54606c;
+    --yadarkgray: #080808;
+
+    font-family: "Pragmatica", Arial, sans-serif; font-weight: normal; font-style: normal;
     color: var(--yablack);
-    font-size: 1.1rem;
-}
-.container {
-    max-width: calc(100vw - 10%);
-    margin: 5% auto;
-    height: calc(100vh - 10%) !important;
+
+    height: 100vh !important;
+    font-size: 1.6rem;
     overflow: hidden;
+}
+table {
+    overflow: hidden;
+    font-size: 1.6rem;
 }
 h1 {
-    font-size: 2.8rem;
+    font-size: 4.3rem;
+    font-weight: 300;
 }
 
 .datetime {
     font-size: 1.2rem;
 }
 
+
+.logo img {
+    width: 320px;
+}
+.clock {
+    color: var(--yadarkorange);
+    font-size: 6rem;
+    font-weight: bold;
+    line-height: 1;
+    border-radius:  15px;
+    display: inline-block;
+}
+
+
 table tbody tr:nth-child(n + 8) {
     display: none;
 }
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: var(--yagray);
+    background-color: var(--yawhite);
+}
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: var(--yalightgray);
+}
+table thead {
+    background-color: var(--yalightgray);
+}
+.table thead th {
+    vertical-align: top;
+    border-bottom: none;
 }
 </style>
