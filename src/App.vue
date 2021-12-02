@@ -1,8 +1,7 @@
 <template>
     <div id="app">
         <All v-if="DESIGN == 'all'" />
-
-
+        <Lada v-if="DESIGN == 'lada'" />
 
         <Slider v-if="SLIDER" />
     </div>
@@ -14,13 +13,14 @@ import Axios from 'axios'
 import Slider from './components/Slider.vue'
 
 import All from './components/All.vue'
+import Lada from './components/Lada.vue'
 
 export default {
     name: 'App',
     components: {
         Slider,
-
-        All
+        All,
+        Lada
     },
     computed: {
         DESIGN() { return this.$store.state.design },
@@ -31,28 +31,30 @@ export default {
         let STATE = this.$store.state
         console.log( STATE )
 
-        setInterval( function() {
+        if ( STATE.timeout ) {
+            setInterval( function() {
 
-            Axios
-                .post(
-                    'https://portal.yug-avto.ru/service/screens/api/get/', 
-                    STATE._GET, 
-                    {
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                            'Accept': 'application/json'
+                Axios
+                    .post(
+                        'https://portal.yug-avto.ru/service/screens/api/get/', 
+                        STATE._GET, 
+                        {
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                                'Accept': 'application/json'
+                            }
                         }
-                    }
-                )
-                .then( function(response) { 
+                    )
+                    .then( function(response) { 
 
-                    if (response.data.status == 'success') {
-                        STATE.managers = response.data.managers;
-                        STATE.items = response.data.items;
-                    }
-                });
+                        if (response.data.status == 'success') {
+                            STATE.managers = response.data.managers;
+                            STATE.items = response.data.items;
+                        }
+                    });
 
-        }, STATE.timeout*1000);
+            }, STATE.timeout*1000);
+        }
     },
 	methods: {
 
