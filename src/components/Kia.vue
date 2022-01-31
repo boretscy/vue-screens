@@ -39,7 +39,7 @@
                         <tr class="c-yadarkblue">
                             <th style="width: 10%;" class="text-center">Время</th>
                             <th style="width: 28%;">Клиент</th>
-                            <th style="width: 27%;">Модель и гос. номер автомобиля</th>
+                            <th style="width: 27%;">Модель <!-- и гос. номер автомобиля --></th>
                             <th style="width: 20%;">Мастер-консультант</th>
                             <th style="width: 15%;">Статус</th>
                         </tr>
@@ -51,7 +51,7 @@
                             >
                             <td class="text-center">{{ item.time.in }}</td>
                             <td>{{ item.client}}</td>
-                            <td>{{ item.model }} {{ item.plate }}</td>
+                            <td>{{ item.model }} <!-- {{ item.plate }} --></td>
                             <td>{{ STATE.managers[item.manager].LAST_NAME }} {{ STATE.managers[item.manager].NAME }}</td>
                             <td>{{ STATE.statuses[item.status] }}</td>
                         </tr>
