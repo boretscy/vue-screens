@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../../fonts/geely/OpenSans-Regular.eot');
+    src: url('../../fonts/geely/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/geely/OpenSans-Regular.woff2') format('woff2'),
+        url('../../fonts/geely/OpenSans-Regular.woff') format('woff'),
+        url('../../fonts/geely/OpenSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
