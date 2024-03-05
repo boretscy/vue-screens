@@ -8,6 +8,7 @@
         <Kia v-if="DESIGN == 'kia'" />
         <Peugeot v-if="DESIGN == 'peugeot'" />
         <Geely v-if="DESIGN == 'geely'" />
+        <Tank v-if="DESIGN == 'tank'" />
 
         <Slider v-if="SLIDER" />
     </div>
@@ -26,6 +27,7 @@ import JLR from './components/JLR.vue'
 import Kia from './components/Kia.vue'
 import Peugeot from './components/Peugeot.vue'
 import Geely from './components/Geely.vue'
+import Tank from './components/Tank.vue'
 
 export default {
     name: 'App',
@@ -38,7 +40,8 @@ export default {
         JLR,
         Kia,
         Peugeot,
-        Geely
+        Geely,
+        Tank
     },
     computed: {
         DESIGN() { return this.$store.state.design },

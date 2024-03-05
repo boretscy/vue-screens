@@ -1,0 +1,37 @@
+
+@font-face {
+    font-family: 'TT TANK';
+    src: url('../../fonts/tank/TTTANK-Md.eot');
+    src: url('../../fonts/tank/TTTANK-Md.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/tank/TTTANK-Md.woff2') format('woff2'),
+        url('../../fonts/tank/TTTANK-Md.woff') format('woff'),
+        url('../../fonts/tank/TTTANK-Md.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT TANK';
+    src: url('../../fonts/tank/TTTANK-Bd.eot');
+    src: url('../../fonts/tank/TTTANK-Bd.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/tank/TTTANK-Bd.woff2') format('woff2'),
+        url('../../fonts/tank/TTTANK-Bd.woff') format('woff'),
+        url('../../fonts/tank/TTTANK-Bd.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT TANK';
+    src: url('../../fonts/tank/TTTANK-Lt.eot');
+    src: url('../../fonts/tank/TTTANK-Lt.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/tank/TTTANK-Lt.woff2') format('woff2'),
+        url('../../fonts/tank/TTTANK-Lt.woff') format('woff'),
+        url('../../fonts/tank/TTTANK-Lt.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
