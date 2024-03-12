@@ -35,8 +35,8 @@
                     <thead>
                         <tr class="text-uppercase">
                             <th style="width: 15%;">Время</th>
-                            <th style="width: 35%;">Клиент</th>
-                            <th style="width: 35%;">Модель и гос. номер автомобиля</th>
+                            <th style="width: 35%;">Модель</th>
+                            <th style="width: 35%;">Гос. номер автомобиля</th>
                             <th style="width: 15%;">Статус</th>
                         </tr>
                     </thead>
@@ -46,8 +46,8 @@
                             :key="indx"
                             >
                             <td>{{ item.time.in }}</td>
-                            <td>{{ item.client}}</td>
-                            <td>{{ item.model }} {{ item.plate }}</td>
+                            <td>{{ item.model}}</td>
+                            <td>{{ item.plate }}</td>
                             <td>{{ STATE.statuses[item.status] }}</td>
                         </tr>
                     </tbody>
