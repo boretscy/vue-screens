@@ -7,7 +7,7 @@
                     <div class="col-3 pt-3">
                         <img 
                             class="w-100" 
-                            :src="require('../assets/images/all.jpg')" />
+                            :src="require('../assets/images/yug-avto.svg')" />
                     </div>
                     <div class="col-9 pl-5">
                         <h1 class="c-yadarkblue pt-3 pb-0 mb-0"><strong>{{ STATE.titleH1 }}</strong></h1>

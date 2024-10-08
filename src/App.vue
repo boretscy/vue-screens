@@ -9,6 +9,7 @@
         <Peugeot v-if="DESIGN == 'peugeot'" />
         <Geely v-if="DESIGN == 'geely'" />
         <Tank v-if="DESIGN == 'tank'" />
+        <Omoda v-if="DESIGN == 'omoda'" />
 
         <Slider v-if="SLIDER" />
     </div>
@@ -28,6 +29,7 @@ import Kia from './components/Kia.vue'
 import Peugeot from './components/Peugeot.vue'
 import Geely from './components/Geely.vue'
 import Tank from './components/Tank.vue'
+import Omoda from './components/Omoda.vue'
 
 export default {
     name: 'App',
@@ -41,7 +43,8 @@ export default {
         Kia,
         Peugeot,
         Geely,
-        Tank
+        Tank,
+        Omoda
     },
     computed: {
         DESIGN() { return this.$store.state.design },

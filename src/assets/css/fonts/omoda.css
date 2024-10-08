@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Dopis';
+    src: url('../../fonts/omoda/Dopis-Bold.eot');
+    src: url('../../fonts/omoda/Dopis-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/omoda/Dopis-Bold.woff2') format('woff2'),
+        url('../../fonts/omoda/Dopis-Bold.woff') format('woff'),
+        url('../../fonts/omoda/Dopis-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Dopis';
+    src: url('../../fonts/omoda/Dopis-Regular.eot');
+    src: url('../../fonts/omoda/Dopis-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/omoda/Dopis-Regular.woff2') format('woff2'),
+        url('../../fonts/omoda/Dopis-Regular.woff') format('woff'),
+        url('../../fonts/omoda/Dopis-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
