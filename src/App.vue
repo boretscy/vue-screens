@@ -10,6 +10,7 @@
         <Geely v-if="DESIGN == 'geely'" />
         <Tank v-if="DESIGN == 'tank'" />
         <Omoda v-if="DESIGN == 'omoda'" />
+        <Haval v-if="DESIGN == 'haval'" />
 
         <Slider v-if="SLIDER" />
     </div>
@@ -30,6 +31,7 @@ import Peugeot from './components/Peugeot.vue'
 import Geely from './components/Geely.vue'
 import Tank from './components/Tank.vue'
 import Omoda from './components/Omoda.vue'
+import Haval from './components/Haval.vue'
 
 export default {
     name: 'App',
@@ -44,7 +46,8 @@ export default {
         Peugeot,
         Geely,
         Tank,
-        Omoda
+        Omoda,
+        Haval
     },
     computed: {
         DESIGN() { return this.$store.state.design },

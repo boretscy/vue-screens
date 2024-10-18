@@ -1,67 +1,69 @@
 <template>
-    
-    <div class="container-fluid p-0">
-        <div class="row top-line bg-yadarkgray"></div>
-        <div class="row px-5 mx-5 mb-5">
-            <div class="col-7 d-flex justify-content-end">
-                <div 
-                    class="col-3 manager"
-                    v-for="manager in STATE.managers"
-                    :key="manager.ID"
-                    >
-                    <img 
-                        class="w-100" 
-                        :src="manager.PERSONAL_PHOTO" />
-                    <p class="font-weight-bold m-0 mt-2">{{ manager.LAST_NAME }} {{ manager.NAME }}</p>
-                </div>
-            </div>
-            <div class="col-5">
-                <div class="d-flex justify-content-center mb-5">
-                    <img class="" :src="require('../assets/images/omoda.svg')" />
-                    <div class="mx-4 bg-yared w-4px h-100"></div>
-                    <img class="" :src="require('../assets/images/jaecoo.svg')" />
-                </div>
-                <div class="pt-3 text-center datetime"><Timer /></div>
-            </div>
-        </div>
-        <div class="row px-5 mx-5 mb-5">
-            <div class="col">
-                <table class="table table-striped text-center m-0">
-                    <thead>
-                        <tr class="bg-yadarkgray c-yawhite fw-bold">
-                            <th style="width: 12%;">Время записи</th>
-                            <th style="width: 12%;">Время выдачи</th>
-                            <th style="width: 19%;">Гос.номер a/м</th>
-                            <th style="width: 20%;">Модель a/м</th>
-                            <th style="width: 23%;">Мастер-консультант</th>
-                            <th style="width: 14%;">Статус</th>
-                        </tr>
-                    </thead>
-                    <tbody v-if="STATE.items">
-                        <tr
-                            v-for="(item, indx) in STATE.items"
-                            :key="indx"
-                            >
-                            <td class="fw-bold">{{ item.time.in }}</td>
-                            <td class="fw-bold">{{ item.time.out }}</td>
-                            <td class="fw-bold">{{ item.plate }}</td>
-                            <td>{{ item.model }}</td>
-                            <td>{{ STATE.managers[item.manager].LAST_NAME }} {{ STATE.managers[item.manager].NAME }}</td>
-                            <td class="fw-bold" :class="item.status">
-                                {{ STATE.statuses[item.status] }}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row my-5" v-if="!STATE.items.length">
-            <div class="col py-5 text-center footer fw-bold">{{ STATE.empty }}</div>
-        </div>
-        <div class="row" v-if="STATE.items.length">
-            <div class="col text-center footer text-uppercase fw-bold">{{ STATE.footer }}</div>
-        </div>
 
+    <div class="container-omoda bg-yabggray">
+        <div class="container-fluid p-0">
+            <div class="row top-line bg-yadarkgray"></div>
+            <div class="row px-5 mx-5 mb-5">
+                <div class="col-7 d-flex justify-content-end">
+                    <div 
+                        class="col-3 manager"
+                        v-for="manager in STATE.managers"
+                        :key="manager.ID"
+                        >
+                        <img 
+                            class="w-100" 
+                            :src="manager.PERSONAL_PHOTO" />
+                        <p class="font-weight-bold m-0 mt-2">{{ manager.LAST_NAME }} {{ manager.NAME }}</p>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="d-flex justify-content-center mb-5">
+                        <img class="" :src="require('../assets/images/omoda.svg')" />
+                        <div class="mx-4 bg-yared w-4px h-100"></div>
+                        <img class="" :src="require('../assets/images/jaecoo.svg')" />
+                    </div>
+                    <div class="pt-3 text-center datetime"><Timer /></div>
+                </div>
+            </div>
+            <div class="row px-5 mx-5 mb-5">
+                <div class="col">
+                    <table class="table table-striped text-center m-0">
+                        <thead>
+                            <tr class="bg-yadarkgray c-yawhite fw-bold">
+                                <th style="width: 12%;">Время записи</th>
+                                <th style="width: 12%;">Время выдачи</th>
+                                <th style="width: 19%;">Гос.номер a/м</th>
+                                <th style="width: 20%;">Модель a/м</th>
+                                <th style="width: 23%;">Мастер-консультант</th>
+                                <th style="width: 14%;">Статус</th>
+                            </tr>
+                        </thead>
+                        <tbody v-if="STATE.items">
+                            <tr
+                                v-for="(item, indx) in STATE.items"
+                                :key="indx"
+                                >
+                                <td class="fw-bold">{{ item.time.in }}</td>
+                                <td class="fw-bold">{{ item.time.out }}</td>
+                                <td class="fw-bold">{{ item.plate }}</td>
+                                <td>{{ item.model }}</td>
+                                <td>{{ STATE.managers[item.manager].LAST_NAME }} {{ STATE.managers[item.manager].NAME }}</td>
+                                <td class="fw-bold" :class="item.status">
+                                    {{ STATE.statuses[item.status] }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row my-5" v-if="!STATE.items.length">
+                <div class="col py-5 text-center footer fw-bold">{{ STATE.empty }}</div>
+            </div>
+            <div class="row" v-if="STATE.items.length">
+                <div class="col text-center footer text-uppercase fw-bold">{{ STATE.footer }}</div>
+            </div>
+
+        </div>
     </div>
 
 </template>
@@ -109,7 +111,7 @@ export default {
 <style scoped>
 @import '../assets/css/fonts/omoda.css';
 
-.container-fluid {
+.container-omoda {
 	--yablack: #30363A;
     --yawhite: #ffffff;
     
@@ -128,6 +130,7 @@ export default {
     font-weight: normal;
     font-style: normal;
 }
+.container-omoda {height: 100vh !important;}
 /* color */
 .c-yawhite {color: var(--yawhite) !important;transition: 0;}
 .c-yablack {color: var(--yablack) !important;transition: 0;}

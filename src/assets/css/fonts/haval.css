@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Haval';
+    src: url('../../fonts/haval/Haval-Light.eot');
+    src: url('../../fonts/haval/Haval-Light.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/haval/Haval-Light.woff2') format('woff2'),
+        url('../../fonts/haval/Haval-Light.woff') format('woff'),
+        url('../../fonts/haval/Haval-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Haval';
+    src: url('../../fonts/haval/Haval-Medium.eot');
+    src: url('../../fonts/haval/Haval-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/haval/Haval-Medium.woff2') format('woff2'),
+        url('../../fonts/haval/Haval-Medium.woff') format('woff'),
+        url('../../fonts/haval/Haval-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Haval';
+    src: url('../../fonts/haval/Haval-Regular.eot');
+    src: url('../../fonts/haval/Haval-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/haval/Haval-Regular.woff2') format('woff2'),
+        url('../../fonts/haval/Haval-Regular.woff') format('woff'),
+        url('../../fonts/haval/Haval-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Haval';
+    src: url('../../fonts/haval/Haval-MediumSlanted.eot');
+    src: url('../../fonts/haval/Haval-MediumSlanted.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/haval/Haval-MediumSlanted.woff2') format('woff2'),
+        url('../../fonts/haval/Haval-MediumSlanted.woff') format('woff'),
+        url('../../fonts/haval/Haval-MediumSlanted.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'TT Wellingtons';
+    src: url('../../fonts/haval/TTWellingtons-Medium.eot');
+    src: url('../../fonts/haval/TTWellingtons-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/haval/TTWellingtons-Medium.woff2') format('woff2'),
+        url('../../fonts/haval/TTWellingtons-Medium.woff') format('woff'),
+        url('../../fonts/haval/TTWellingtons-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TT Wellingtons';
+    src: url('../../fonts/haval/TTWellingtons-Regular.eot');
+    src: url('../../fonts/haval/TTWellingtons-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/haval/TTWellingtons-Regular.woff2') format('woff2'),
+        url('../../fonts/haval/TTWellingtons-Regular.woff') format('woff'),
+        url('../../fonts/haval/TTWellingtons-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
