@@ -47,11 +47,12 @@
 }
 @font-face {
     font-family: 'TT Wellingtons';
-    src: url('../../fonts/haval/TTWellingtons-Medium.eot');
+    src: url('../../fonts/haval/TTWellingtons-Medium.otf');
+    /* src: url('../../fonts/haval/TTWellingtons-Medium.eot');
     src: url('../../fonts/haval/TTWellingtons-Medium.eot?#iefix') format('embedded-opentype'),
         url('../../fonts/haval/TTWellingtons-Medium.woff2') format('woff2'),
         url('../../fonts/haval/TTWellingtons-Medium.woff') format('woff'),
-        url('../../fonts/haval/TTWellingtons-Medium.ttf') format('truetype');
+        url('../../fonts/haval/TTWellingtons-Medium.ttf') format('truetype'); */
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -59,11 +60,12 @@
 
 @font-face {
     font-family: 'TT Wellingtons';
-    src: url('../../fonts/haval/TTWellingtons-Regular.eot');
+    src: url('../../fonts/haval/TTWellingtons-Regular.otf');
+    /* src: url('../../fonts/haval/TTWellingtons-Regular.eot');
     src: url('../../fonts/haval/TTWellingtons-Regular.eot?#iefix') format('embedded-opentype'),
         url('../../fonts/haval/TTWellingtons-Regular.woff2') format('woff2'),
         url('../../fonts/haval/TTWellingtons-Regular.woff') format('woff'),
-        url('../../fonts/haval/TTWellingtons-Regular.ttf') format('truetype');
+        url('../../fonts/haval/TTWellingtons-Regular.ttf') format('truetype'); */
     font-weight: 400;
     font-style: normal;
     font-display: swap;

@@ -13,12 +13,13 @@
             <div class="row mb-5">
                 <div class="col-7 d-flex justify-content-between">
                     <div class="greetings f-haval-500 mr-4">
-                        Добро пожаловать!<br />Мы ценим ваше время<br />и пунктуальность!
+                        <div v-html="STATE.titleH1"></div>
+                        <div v-html="STATE.footer"></div>
                         <Timer />
                     </div>
                     <div class="dc">
-                        <div class="title f-haval-400 mb-3">ХАВЕЙЛ<br />Юг-Авто Центр<br />Новороссийск</div>
-                        <div class="address">Новороссийск, с. Владимировка,<br />р-н автотрассы «Краснодар-Новороссийск</div>
+                        <div class="title f-haval-400 mb-3">ХАВЕЙЛ<br />{{ STATE.company.NAME }}</div>
+                        <div class="address">{{ STATE.company.PROPERTY_LEGAL_ADDR_LOCALITY }} {{ STATE.company.PROPERTY_LEGAL_ADDR_STREET }} {{ STATE.company.PROPERTY_LEGAL_ADDR_BUILDING }}</div>
                     </div>
                 </div>
                 <div class="col-5 d-flex justify-content-end">
@@ -103,6 +104,8 @@ export default {
             STATE.statuses.success = 'выполнен'
             STATE.statuses.waiting = 'ждем авто'
             STATE.statuses.working = 'в работе'
+
+            if ( typeof STATE.company.NAME == 'undefined' ) STATE.company.NAME = 'Юг-Авто Центр Новороссийск'
             
             for ( let i in STATE.managers ) {
                 if ( STATE.managers[i].PERSONAL_PHOTO && STATE.managers[i].PERSONAL_PHOTO.indexOf('portal.yug-avto.ru') == -1 ) STATE.managers[i].PERSONAL_PHOTO = 'https://portal.yug-avto.ru'+STATE.managers[i].PERSONAL_PHOTO
