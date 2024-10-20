@@ -141,7 +141,7 @@ export default {
     overflow: hidden;
 
     font-family: "TT Wellingtons", Arial, sans-serif; font-weight: normal; font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-style: normal;
 
     padding: 38px;
@@ -211,7 +211,8 @@ export default {
     top: 0;
 }
 
-.greetings {font-size: 38px; width: 70%; line-height: 1.1;}
+.greetings {font-size: 38px; width: 676px; line-height: 1.1;}
+.dc {margin-left: 54px;}
 .dc .title {font-size: 32px; line-height: 1.1;}
 .dc .address {font-size: 24px; line-height: 1.1;}
 
