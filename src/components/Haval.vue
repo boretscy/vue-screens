@@ -19,13 +19,13 @@
                     </div>
                     <div class="dc">
                         <div class="title f-haval-400 mb-3">ХАВЕЙЛ<br />{{ STATE.company.NAME }}</div>
-                        <div class="address">{{ STATE.company.PROPERTY_LEGAL_ADDR_LOCALITY }} {{ STATE.company.PROPERTY_LEGAL_ADDR_STREET }} {{ STATE.company.PROPERTY_LEGAL_ADDR_BUILDING }}</div>
+                        <div class="address">{{ STATE.company.PROPERTY_LEGAL_ADDR_LOCALITY_VALUE }} {{ STATE.company.PROPERTY_LEGAL_ADDR_STREET_VALUE }} {{ STATE.company.PROPERTY_LEGAL_ADDR_BUILDING_VALUE }}</div>
                     </div>
                 </div>
                 <div class="col-5 d-flex justify-content-end">
                     <div 
                         class="manager"
-                        v-for="manager in STATE.managers"
+                        v-for="manager in STATE.viewManagers"
                         :key="manager.ID"
                         >
                         <div class="img w-100" :style="{'background-image': 'url('+manager.PERSONAL_PHOTO+')'}"></div>
@@ -108,11 +108,35 @@ export default {
             if ( typeof STATE.company.NAME == 'undefined' ) STATE.company.NAME = 'Юг-Авто Центр Новороссийск'
             
             for ( let i in STATE.managers ) {
-                if ( STATE.managers[i].PERSONAL_PHOTO && STATE.managers[i].PERSONAL_PHOTO.indexOf('portal.yug-avto.ru') == -1 ) STATE.managers[i].PERSONAL_PHOTO = 'https://portal.yug-avto.ru'+STATE.managers[i].PERSONAL_PHOTO
+                if ( STATE.managers[i].PERSONAL_PHOTO && STATE.managers[i].PERSONAL_PHOTO.indexOf('portal.yug-avto.ru') == -1 && STATE.managers[i].PERSONAL_PHOTO.indexOf('default.') == -1 )
+                    STATE.managers[i].PERSONAL_PHOTO = 'https://portal.yug-avto.ru'+STATE.managers[i].PERSONAL_PHOTO
                 if ( !STATE.managers[i].PERSONAL_PHOTO || STATE.managers[i].PERSONAL_PHOTO.match(/[ ]/) )  STATE.managers[i].PERSONAL_PHOTO = this.manager
+                STATE.managers[i].PERSONAL_PHOTO = STATE.managers[i].PERSONAL_PHOTO.replace('ruimg', 'ru/img')
             }
+            
+            STATE.viewManagers = {}
+            STATE.viewManagersIndxs = Object.keys(STATE.managers).slice(STATE.curMIndx, STATE.curMIndx+4)
+            STATE.viewManagersIndxs.forEach( (i) => {
+                STATE.viewManagers[i] = STATE.managers[i]
+            }) 
             return STATE
         }
+    },
+    mounted: function() {
+
+        let STATE = this.$store.state
+
+        setInterval( function() {
+
+            STATE.curMIndx += 4
+            if ( Object.keys(STATE.managers).length-1 < STATE.curMIndx ) STATE.curMIndx = 0
+            STATE.viewManagers = {}
+            STATE.viewManagersIndxs = Object.keys(STATE.managers).slice(STATE.curMIndx, STATE.curMIndx+4)
+            STATE.viewManagersIndxs.forEach( (i) => {
+                STATE.viewManagers[i] = STATE.managers[i]
+            }) 
+
+        }, 5000);
     },
 	methods: {
 
