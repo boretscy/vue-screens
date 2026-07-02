@@ -70,6 +70,7 @@
 
 </template>
 
+
 <script>
 
 import manager from "../assets/images/default.jpg"
