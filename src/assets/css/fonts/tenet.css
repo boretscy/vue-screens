@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'TENET Sans';
+    src: url('../../fonts/tenet/TENETSans-Regular.eot');
+    src: url('../../fonts/tenet/TENETSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/tenet/TENETSans-Regular.woff2') format('woff2'),
+        url('../../fonts/tenet/TENETSans-Regular.woff') format('woff'),
+        url('../../fonts/tenet/TENETSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TENET Sans';
+    src: url('../../fonts/tenet/TENETSans-Italic.eot');
+    src: url('../../fonts/tenet/TENETSans-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/tenet/TENETSans-Italic.woff2') format('woff2'),
+        url('../../fonts/tenet/TENETSans-Italic.woff') format('woff'),
+        url('../../fonts/tenet/TENETSans-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TENET Sans';
+    src: url('../../fonts/tenet/TENETSans-BoldItalic.eot');
+    src: url('../../fonts/tenet/TENETSans-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/tenet/TENETSans-BoldItalic.woff2') format('woff2'),
+        url('../../fonts/tenet/TENETSans-BoldItalic.woff') format('woff'),
+        url('../../fonts/tenet/TENETSans-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TENET Sans Semi Expanded';
+    src: url('../../fonts/tenet/TENETSans-SemiExpandedBold.eot');
+    src: url('../../fonts/tenet/TENETSans-SemiExpandedBold.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/tenet/TENETSans-SemiExpandedBold.woff2') format('woff2'),
+        url('../../fonts/tenet/TENETSans-SemiExpandedBold.woff') format('woff'),
+        url('../../fonts/tenet/TENETSans-SemiExpandedBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TENET Sans';
+    src: url('../../fonts/tenet/TENETSans-Bold.eot');
+    src: url('../../fonts/tenet/TENETSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/tenet/TENETSans-Bold.woff2') format('woff2'),
+        url('../../fonts/tenet/TENETSans-Bold.woff') format('woff'),
+        url('../../fonts/tenet/TENETSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+

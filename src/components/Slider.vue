@@ -37,6 +37,7 @@ export default {
     mounted: function() {
         
         let MODE = this.$store.state.ADV.ADV_MODE
+        console.log( this.$store.state.ADV.ADV_ITEMS )
 
         switch ( MODE ) {
 
