@@ -8,10 +8,10 @@
                 </div>
             </div>
             <div class="row mb-5">
-                <div class="col-6">
+                <div class="col-7">
                     <h1 class="text-uppercase fw-bold lineheight-1 pm-0 mb-0">{{ STATE.titleH1 }}</h1>
                 </div>
-                <div class="col-6 pt-2">
+                <div class="col pt-4">
                     <div 
                         class="row h-100"
                         v-if="Object.keys(STATE.managers).length"
@@ -187,7 +187,7 @@ export default {
 
 .lineheight-1 {line-height: 1;}
 
-h1 {font-size: 110px;}
+h1 {font-size: 140px;}
 .logo {width: 350px; height: auto;}
 
 .manager-img {width: 200px; height: 200px;}
