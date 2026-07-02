@@ -18,14 +18,14 @@
                         <Timer />
                     </div>
                     <div class="dc">
-                        <div class="title f-haval-400 mb-3">ХАВЕЙЛ<br />{{ STATE.company.NAME }}</div>
-                        <div class="address">{{ STATE.company.PROPERTY_LEGAL_ADDR_LOCALITY_VALUE }} {{ STATE.company.PROPERTY_LEGAL_ADDR_STREET_VALUE }} {{ STATE.company.PROPERTY_LEGAL_ADDR_BUILDING_VALUE }}</div>
+                        <div class="title f-haval-400 mb-3">ХАВЕЙЛ<br />{{ companyName }}</div>
+                        <div class="address" v-if="STATE.company">{{ STATE.company.PROPERTY_LEGAL_ADDR_LOCALITY_VALUE }} {{ STATE.company.PROPERTY_LEGAL_ADDR_STREET_VALUE }} {{ STATE.company.PROPERTY_LEGAL_ADDR_BUILDING_VALUE }}</div>
                     </div>
                 </div>
                 <div class="col-5 d-flex justify-content-end">
                     <div 
                         class="manager"
-                        v-for="manager in STATE.viewManagers"
+                        v-for="manager in viewManagers"
                         :key="manager.ID"
                         >
                         <div class="img w-100" :style="{'background-image': 'url('+manager.PERSONAL_PHOTO+')'}"></div>
@@ -56,11 +56,11 @@
                                 <td class="">{{ item.time.out }}</td>
                                 <td class="">{{ item.plate }}</td>
                                 <td>{{ item.model }}</td>
-                                <td>{{ STATE.managers[item.manager].LAST_NAME }} {{ STATE.managers[item.manager].NAME }}</td>
+                                <td>{{ safeGetManager(item.manager).LAST_NAME }} {{ safeGetManager(item.manager).NAME }}</td>
                                 <td :class="item.status">
                                     <div class="d-flex justify-content-start align-items-center">
                                         <div class="status-mark mr-3"></div>
-                                        <div class="status-text">{{ STATE.statuses[item.status] }}</div>
+                                        <div class="status-text">{{ statuses[item.status] }}</div>
                                     </div>
                                 </td>
                             </tr>
@@ -90,53 +90,50 @@ export default {
     },
     data: function () {
         return {
-            manager: manager
+            manager: manager,
+            rotationInterval: null
         }
     },
     computed: {
-
         STATE() { 
-            
-            let STATE = this.$store.state
-
-            STATE.statuses.canceled = 'отменен'
-            STATE.statuses.error = 'ошибка'
-            STATE.statuses.success = 'выполнен'
-            STATE.statuses.waiting = 'ждем авто'
-            STATE.statuses.working = 'в работе'
-
-            if ( typeof STATE.company.NAME == 'undefined' ) STATE.company.NAME = 'Юг-Авто Центр Новороссийск'
-            
-            for ( let i in STATE.managers ) {
-                if ( STATE.managers[i].PERSONAL_PHOTO && STATE.managers[i].PERSONAL_PHOTO.indexOf('portal.yug-avto.ru') == -1 && STATE.managers[i].PERSONAL_PHOTO.indexOf('default.') == -1 )
-                    STATE.managers[i].PERSONAL_PHOTO = 'https://portal.yug-avto.ru'+STATE.managers[i].PERSONAL_PHOTO
-                if ( !STATE.managers[i].PERSONAL_PHOTO || STATE.managers[i].PERSONAL_PHOTO.match(/[ ]/) )  STATE.managers[i].PERSONAL_PHOTO = this.manager
-                STATE.managers[i].PERSONAL_PHOTO = STATE.managers[i].PERSONAL_PHOTO.replace('ruimg', 'ru/img')
-            }
-            
-            STATE.viewManagers = {}
-            STATE.viewManagersIndxs = Object.keys(STATE.managers).slice(STATE.curMIndx, STATE.curMIndx+4)
-            STATE.viewManagersIndxs.forEach( (i) => {
-                STATE.viewManagers[i] = STATE.managers[i]
-            }) 
-            return STATE
+            return this.$store.state
+        },
+        statuses() {
+            return {
+                ...this.$store.state.statuses,
+                canceled: 'отменен',
+                error: 'ошибка',
+                success: 'выполнен',
+                waiting: 'ждем авто',
+                working: 'в работе'
+            };
+        },
+        companyName() {
+            return this.$store.state.company && this.$store.state.company.NAME 
+                ? this.$store.state.company.NAME 
+                : 'Юг-Авто Центр Новороссийск';
+        },
+        viewManagers() {
+            const managers = this.$store.state.managers || {};
+            const keys = Object.keys(managers);
+            const index = this.$store.state.curMIndx || 0;
+            const sliceKeys = keys.slice(index, index + 4);
+            const result = [];
+            sliceKeys.forEach(key => {
+                result.push(this.safeGetManager(key));
+            });
+            return result;
         }
     },
     mounted: function() {
-
-        let STATE = this.$store.state
-
-        setInterval( function() {
-
-            STATE.curMIndx += 4
-            if ( Object.keys(STATE.managers).length-1 < STATE.curMIndx ) STATE.curMIndx = 0
-            STATE.viewManagers = {}
-            STATE.viewManagersIndxs = Object.keys(STATE.managers).slice(STATE.curMIndx, STATE.curMIndx+4)
-            STATE.viewManagersIndxs.forEach( (i) => {
-                STATE.viewManagers[i] = STATE.managers[i]
-            }) 
-
+        this.rotationInterval = setInterval( () => {
+            this.$store.commit('INCREMENT_CUR_M_INDX', 4);
         }, 5000);
+    },
+    beforeDestroy() {
+        if (this.rotationInterval) {
+            clearInterval(this.rotationInterval);
+        }
     },
 	methods: {
 

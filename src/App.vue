@@ -56,13 +56,16 @@ export default {
         DESIGN() { return this.$store.state.design },
         SLIDER() { return ( this.$store.state.ADV ) ? true : false }
     },
+    data() {
+        return {
+            pollInterval: null
+        };
+    },
     mounted: function() {
-
         let STATE = this.$store.state
 
         if ( STATE.timeout ) {
-            setInterval( function() {
-
+            this.pollInterval = setInterval( () => {
                 Axios
                     .post(
                         'https://portal.yug-avto.ru/service/screens/api/get/', 
@@ -74,15 +77,23 @@ export default {
                             }
                         }
                     )
-                    .then( function(response) { 
-
+                    .then( (response) => { 
                         if (response.data.status == 'success') {
-                            STATE.managers = response.data.managers;
-                            STATE.items = response.data.items;
+                            this.$store.commit('SET_DATA', {
+                                managers: response.data.managers,
+                                items: response.data.items
+                            });
                         }
+                    })
+                    .catch( (error) => {
+                        console.error('Polling error:', error);
                     });
-
             }, STATE.timeout*1000);
+        }
+    },
+    beforeDestroy() {
+        if (this.pollInterval) {
+            clearInterval(this.pollInterval);
         }
     },
 	methods: {

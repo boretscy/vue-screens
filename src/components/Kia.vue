@@ -52,7 +52,7 @@
                             <td class="text-center">{{ item.time.in }}</td>
                             <td>{{ item.client}}</td>
                             <td>{{ item.model }} <!-- {{ item.plate }} --></td>
-                            <td>{{ STATE.managers[item.manager].LAST_NAME }} {{ STATE.managers[item.manager].NAME }}</td>
+                            <td>{{ safeGetManager(item.manager).LAST_NAME }} {{ safeGetManager(item.manager).NAME }}</td>
                             <td>{{ STATE.statuses[item.status] }}</td>
                         </tr>
                     </tbody>

@@ -7,7 +7,7 @@
                 <div class="col-7 d-flex justify-content-end">
                     <div 
                         class="col-3 manager"
-                        v-for="manager in STATE.managers"
+                        v-for="manager in omodaManagers"
                         :key="manager.ID"
                         >
                         <img 
@@ -47,7 +47,7 @@
                                 <td class="fw-bold">{{ item.time.out }}</td>
                                 <td class="fw-bold">{{ item.plate }}</td>
                                 <td>{{ item.model }}</td>
-                                <td>{{ STATE.managers[item.manager].LAST_NAME }} {{ STATE.managers[item.manager].NAME }}</td>
+                                <td>{{ safeGetManager(item.manager).LAST_NAME }} {{ safeGetManager(item.manager).NAME }}</td>
                                 <td class="fw-bold" :class="item.status">
                                     {{ STATE.statuses[item.status] }}
                                 </td>
@@ -84,17 +84,16 @@ export default {
         }
     },
     computed: {
-
         STATE() { 
-            
-            let STATE = this.$store.state
-            for ( let i in STATE.managers ) {
-                
-                if ( STATE.managers[i].PERSONAL_PHOTO && STATE.managers[i].PERSONAL_PHOTO.indexOf('portal.yug-avto.ru') == -1 ) STATE.managers[i].PERSONAL_PHOTO = 'https://portal.yug-avto.ru'+STATE.managers[i].PERSONAL_PHOTO
-                if ( !STATE.managers[i].PERSONAL_PHOTO )  STATE.managers[i].PERSONAL_PHOTO = manager
+            return this.$store.state
+        },
+        omodaManagers() {
+            const managers = this.$store.state.managers || {};
+            const result = [];
+            for (let id in managers) {
+                result.push(this.safeGetManager(id));
             }
-
-            return STATE
+            return result;
         }
     },
 	methods: {

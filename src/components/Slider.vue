@@ -31,6 +31,12 @@ export default {
     components: {
         VideoBg
     },
+    data() {
+        return {
+            timeouts: [],
+            intervals: []
+        };
+    },
     computed: {
         STATE() { return this.$store.state.ADV }
     },
@@ -52,7 +58,26 @@ export default {
             default: break;
         }
     },
+    beforeDestroy() {
+        this.clearTimers();
+    },
     methods: {
+        mySetTimeout(fn, delay) {
+            const id = setTimeout(fn, delay);
+            this.timeouts.push(id);
+            return id;
+        },
+        mySetInterval(fn, delay) {
+            const id = setInterval(fn, delay);
+            this.intervals.push(id);
+            return id;
+        },
+        clearTimers() {
+            this.timeouts.forEach(id => clearTimeout(id));
+            this.intervals.forEach(id => clearInterval(id));
+            this.timeouts = [];
+            this.intervals = [];
+        },
 
         startADV() {
             
@@ -65,29 +90,29 @@ export default {
             let timeout = 0
             for ( let indx in STATE.ADV_ITEMS ) {
                 
-                setTimeout(() => {
+                this.mySetTimeout(() => {
                     STATE.ADV_ITEMS[indx].SHOW = true
                 }, timeout*1000);
 
                 timeout += ( STATE.ADV_ITEMS[indx].TYPE == 'video' && STATE.ADV_ITEMS[indx].PLAY_TO_END ) ? Number(STATE.ADV_ITEMS[indx].LENGTH) : Number(STATE.ADV_ITEMS[indx].DURATION)
                 
-                setTimeout(() => {
+                this.mySetTimeout(() => {
                     STATE.ADV_ITEMS[indx].SHOW = false
                 }, timeout*1000);
 
             }
 
-            setInterval(() => {
+            this.mySetInterval(() => {
                 let timeout = 0
                 for ( let indx in STATE.ADV_ITEMS ) {
 
-                    setTimeout(() => {
+                    this.mySetTimeout(() => {
                         STATE.ADV_ITEMS[indx].SHOW = true
                     }, timeout*1000);
 
                     timeout += ( STATE.ADV_ITEMS[indx].TYPE == 'video' && STATE.ADV_ITEMS[indx].PLAY_TO_END ) ? Number(STATE.ADV_ITEMS[indx].LENGTH) : Number(STATE.ADV_ITEMS[indx].DURATION)
                     
-                    setTimeout(() => {
+                    this.mySetTimeout(() => {
                         STATE.ADV_ITEMS[indx].SHOW = false
                     }, timeout*1000);
 
@@ -104,37 +129,37 @@ export default {
                 alltimeouts += ( STATE.ADV_ITEMS[indx].TYPE == 'video' && STATE.ADV_ITEMS[indx].PLAY_TO_END ) ? Number(STATE.ADV_ITEMS[indx].LENGTH) : Number(STATE.ADV_ITEMS[indx].DURATION)
             }
 
-            setTimeout(() => {
+            this.mySetTimeout(() => {
                 
                 let timeout = 0
                 for ( let indx in STATE.ADV_ITEMS ) {
 
-                    setTimeout(() => {
+                    this.mySetTimeout(() => {
                         STATE.ADV_ITEMS[indx].SHOW = true
                     }, timeout*1000);
 
                     timeout += ( STATE.ADV_ITEMS[indx].TYPE == 'video' && STATE.ADV_ITEMS[indx].PLAY_TO_END ) ? Number(STATE.ADV_ITEMS[indx].LENGTH) : Number(STATE.ADV_ITEMS[indx].DURATION)
                     
-                    setTimeout(() => {
+                    this.mySetTimeout(() => {
                         STATE.ADV_ITEMS[indx].SHOW = false
                     }, timeout*1000);
 
                 }
 
-                setInterval(() => {
+                this.mySetInterval(() => {
 
-                    setTimeout(() => {
+                    this.mySetTimeout(() => {
                         
                         let timeout = 0
                         for ( let indx in STATE.ADV_ITEMS ) {
 
-                            setTimeout(() => {
+                            this.mySetTimeout(() => {
                                 STATE.ADV_ITEMS[indx].SHOW = true
                             }, timeout*1000);
 
                             timeout += ( STATE.ADV_ITEMS[indx].TYPE == 'video' && STATE.ADV_ITEMS[indx].PLAY_TO_END ) ? Number(STATE.ADV_ITEMS[indx].LENGTH) : Number(STATE.ADV_ITEMS[indx].DURATION)
                             
-                            setTimeout(() => {
+                            this.mySetTimeout(() => {
                                 STATE.ADV_ITEMS[indx].SHOW = false
                             }, timeout*1000);
 

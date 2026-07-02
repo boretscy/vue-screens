@@ -11,7 +11,8 @@ export default {
     data: function () {
         return {
             d: '',
-            w: ''
+            w: '',
+            dateInterval: null
         }
     },
     computed: {
@@ -19,11 +20,16 @@ export default {
     mounted: function() {
 
         this.newDate();
-        setInterval( ()=>{
+        this.dateInterval = setInterval( ()=>{
 
             this.newDate();
 
         }, 1000);
+    },
+    beforeDestroy() {
+        if (this.dateInterval) {
+            clearInterval(this.dateInterval);
+        }
     },
 
 	methods: {

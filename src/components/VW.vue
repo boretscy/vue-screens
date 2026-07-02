@@ -22,14 +22,14 @@
                 >
                 <div 
                     class="col-3 text-center manager"
-                    v-for="manager in STATE.managers"
+                    v-for="manager in vwManagers"
                     :key="manager.ID"
                     >
                     <img 
                         class="w-100" 
                         :src="manager.PERSONAL_PHOTO" />
                     <p class="font-weight-bold m-0 mt-2">{{ manager.LAST_NAME }} {{ manager.NAME }}</p>
-                    <p class="m-0 phone">{{ FormatPhone(STATE.company.PROPERTY_PHONE_ADV_VALUE) }}</p>
+                    <p class="m-0 phone" v-if="STATE.company">{{ FormatPhone(STATE.company.PROPERTY_PHONE_ADV_VALUE) }}</p>
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
                             <td>{{ item.time.out }}</td>
                             <td>{{ item.plate }}</td>
                             <td>{{ item.model }}</td>
-                            <td>{{ STATE.managers[item.manager].LAST_NAME }} {{ STATE.managers[item.manager].NAME }}</td>
+                            <td>{{ safeGetManager(item.manager).LAST_NAME }} {{ safeGetManager(item.manager).NAME }}</td>
                             <td class="status text-left">
                                 <span :class="item.status"></span>
                                 {{ STATE.statuses[item.status] }}
@@ -92,17 +92,16 @@ export default {
         }
     },
     computed: {
-
         STATE() { 
-            
-            let STATE = this.$store.state
-            for ( let i in STATE.managers ) {
-                
-                if ( STATE.managers[i].PERSONAL_PHOTO && STATE.managers[i].PERSONAL_PHOTO.indexOf('portal.yug-avto.ru') == -1 ) STATE.managers[i].PERSONAL_PHOTO = 'https://portal.yug-avto.ru'+STATE.managers[i].PERSONAL_PHOTO
-                if ( !STATE.managers[i].PERSONAL_PHOTO )  STATE.managers[i].PERSONAL_PHOTO = manager
+            return this.$store.state
+        },
+        vwManagers() {
+            const managers = this.$store.state.managers || {};
+            const result = [];
+            for (let id in managers) {
+                result.push(this.safeGetManager(id));
             }
-
-            return STATE
+            return result;
         }
     },
 	methods: {

@@ -17,16 +17,16 @@
         <div class="row py-4">
             <div 
                 class="col-2 d-flex justify-content-start"
-                v-if="Object.keys(STATE.managers).length"
+                v-if="safeGetActiveManager()"
                 >
                 <div 
                     class="manager"
                     >
                     <img 
                     class="w-100" 
-                    :src="STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].PERSONAL_PHOTO" />
+                    :src="safeGetActiveManager().PERSONAL_PHOTO" />
                 <p class="mt-3 datetime text-uppercase">
-                    {{ STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].LAST_NAME }} {{ STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].NAME }}
+                    {{ safeGetActiveManager().LAST_NAME }} {{ safeGetActiveManager().NAME }}
                 </p>
                 </div>
             </div>
@@ -77,39 +77,24 @@ export default {
     },
     data: function () {
         return {
-            manager: manager
+            manager: manager,
+            rotationInterval: null
         }
     },
     computed: {
-
         STATE() { 
-            
-            let STATE = this.$store.state
-
-            for ( let i in STATE.managers ) {
-                
-                if ( STATE.managers[i].PERSONAL_PHOTO && STATE.managers[i].PERSONAL_PHOTO.indexOf('portal.yug-avto.ru') == -1 ) STATE.managers[i].PERSONAL_PHOTO = 'https://portal.yug-avto.ru'+STATE.managers[i].PERSONAL_PHOTO
-                if ( !STATE.managers[i].PERSONAL_PHOTO )  STATE.managers[i].PERSONAL_PHOTO = manager
-                
-                STATE.managers[i].items = []
-                for ( let k in STATE.items ) {
-                    if ( STATE.items[k].manager == i ) STATE.managers[i].items.push(STATE.items[k])
-                }
-            }
-
-            return STATE
+            return this.$store.state
         }
     },
     mounted: function() {
-
-        let STATE = this.$store.state
-
-        setInterval( function() {
-
-            STATE.curMIndx++;
-            if ( Object.keys(STATE.managers).length-1 < STATE.curMIndx ) STATE.curMIndx = 0;
-
+        this.rotationInterval = setInterval( () => {
+            this.$store.commit('INCREMENT_CUR_M_INDX');
         }, 5000);
+    },
+    beforeDestroy() {
+        if (this.rotationInterval) {
+            clearInterval(this.rotationInterval);
+        }
     }
 }
 </script>

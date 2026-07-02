@@ -16,12 +16,12 @@
                         class="row h-100"
                         v-if="Object.keys(STATE.managers).length"
                         >
-                        <div class="col-12 d-flex justify-content-start align-content-center">
+                        <div class="col-12 d-flex justify-content-start align-content-center" v-if="activeManager">
                             <img 
                                     class="manager-img mr-4 b-radius-yaradius" 
-                                    :src="STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].PERSONAL_PHOTO" />
+                                    :src="activeManager.PERSONAL_PHOTO" />
                             <div class="d-flex flex-column justify-content-center align-content-start">
-                                <div class="manager-name fw-bold">{{ STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].LAST_NAME }} {{ STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].NAME }}</div>
+                                <div class="manager-name fw-bold">{{ activeManager.LAST_NAME }} {{ activeManager.NAME }}</div>
                                 <div class="manager-pos">Мастер-консультант</div>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                         <tbody class="bg-yalight">
                             <tr 
                                 class="b-b-yadark"
-                                v-for="item in STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].items"
+                                v-for="item in activeManagerItems"
                                 :key="item.ID">
                                 <td >{{ item.time.in }}</td>
                                 <td>{{ item.client}}</td>
@@ -72,38 +72,40 @@ export default {
     name: 'Tenet',
     data: function () {
         return {
-            manager: manager
+            manager: manager,
+            rotationInterval: null
         }
     },
     computed: {
-
         STATE() { 
+            return this.$store.state
+        },
+        activeManager() {
+            return this.safeGetActiveManager();
+        },
+        activeManagerItems() {
+            const manager = this.safeGetActiveManager();
+            if (!manager) return [];
             
-            let STATE = this.$store.state
+            const managers = this.$store.state.managers || {};
+            const keys = Object.keys(managers);
+            const index = this.$store.state.curMIndx || 0;
+            if (keys.length === 0) return [];
+            const safeIndex = index % keys.length;
+            const managerId = keys[safeIndex];
             
-            for ( let i in STATE.managers ) {
-                
-                if ( STATE.managers[i].PERSONAL_PHOTO && STATE.managers[i].PERSONAL_PHOTO.indexOf('portal.yug-avto.ru') == -1 ) STATE.managers[i].PERSONAL_PHOTO = 'https://portal.yug-avto.ru'+STATE.managers[i].PERSONAL_PHOTO
-                if ( !STATE.managers[i].PERSONAL_PHOTO )  STATE.managers[i].PERSONAL_PHOTO = manager
-                
-                STATE.managers[i].items = []
-                for ( let k in STATE.items ) {
-                    if ( STATE.items[k].manager == i ) STATE.managers[i].items.push(STATE.items[k])
-                }
-            }
-            return STATE
+            return (this.$store.state.items || []).filter(item => item.manager == managerId);
         }
     },
     mounted: function() {
-
-        let STATE = this.$store.state
-
-        setInterval( function() {
-
-            STATE.curMIndx++;
-            if ( Object.keys(STATE.managers).length-1 < STATE.curMIndx ) STATE.curMIndx = 0;
-
+        this.rotationInterval = setInterval( () => {
+            this.$store.commit('INCREMENT_CUR_M_INDX');
         }, 5000);
+    },
+    beforeDestroy() {
+        if (this.rotationInterval) {
+            clearInterval(this.rotationInterval);
+        }
     },
 	methods: {
 

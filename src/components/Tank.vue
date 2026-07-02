@@ -21,15 +21,15 @@
 
         <div 
             class="row p-5"
-            v-if="Object.keys(STATE.managers).length"
+            v-if="activeManager"
             >
             <div class="col-2">
                 <img 
                         class="w-100" 
-                        :src="STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].PERSONAL_PHOTO" />
+                        :src="activeManager.PERSONAL_PHOTO" />
                 <p class="mt-5 font-weight-light manager">
                     Мастер-консультант <br /> <br />
-                    <strong>{{ STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].LAST_NAME }} {{ STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].NAME }}</strong>
+                    <strong>{{ activeManager.LAST_NAME }} {{ activeManager.NAME }}</strong>
                 </p>
             </div>
             
@@ -45,7 +45,7 @@
                     </thead>
                     <tbody>
                         <tr
-                            v-for="item in STATE.managers[Object.keys(STATE.managers)[STATE.curMIndx]].items"
+                            v-for="item in activeManagerItems"
                             :key="item.ID"
                             class="font-weight-light">
                             <td class="pl-5">{{ item.model }}</td>
@@ -79,39 +79,39 @@ export default {
     data: function () {
         return {
             manager: manager,
+            rotationInterval: null
         }
     },
     computed: {
-
         STATE() { 
-            
-            let STATE = this.$store.state
-
-            for ( let i in STATE.managers ) {
-                
-                if ( STATE.managers[i].PERSONAL_PHOTO && STATE.managers[i].PERSONAL_PHOTO.indexOf('portal.yug-avto.ru') == -1 ) STATE.managers[i].PERSONAL_PHOTO = 'https://portal.yug-avto.ru'+STATE.managers[i].PERSONAL_PHOTO
-                if ( !STATE.managers[i].PERSONAL_PHOTO )  STATE.managers[i].PERSONAL_PHOTO = manager
-                
-                STATE.managers[i].items = []
-                for ( let k in STATE.items ) {
-                    if ( STATE.items[k].manager == i ) STATE.managers[i].items.push(STATE.items[k])
-                }
-            }
-
-            return STATE
+            return this.$store.state
         },
+        activeManager() {
+            return this.safeGetActiveManager();
+        },
+        activeManagerItems() {
+            const manager = this.safeGetActiveManager();
+            if (!manager) return [];
+            
+            const managers = this.$store.state.managers || {};
+            const keys = Object.keys(managers);
+            const index = this.$store.state.curMIndx || 0;
+            if (keys.length === 0) return [];
+            const safeIndex = index % keys.length;
+            const managerId = keys[safeIndex];
+            
+            return (this.$store.state.items || []).filter(item => item.manager == managerId);
+        }
     },
     mounted: function() {
-
-        let STATE = this.$store.state
-        console.log(STATE)
-
-        setInterval( function() {
-
-            STATE.curMIndx++;
-            if ( Object.keys(STATE.managers).length-1 < STATE.curMIndx ) STATE.curMIndx = 0;
-
+        this.rotationInterval = setInterval( () => {
+            this.$store.commit('INCREMENT_CUR_M_INDX');
         }, 5000);
+    },
+    beforeDestroy() {
+        if (this.rotationInterval) {
+            clearInterval(this.rotationInterval);
+        }
     }
 }
 </script>
